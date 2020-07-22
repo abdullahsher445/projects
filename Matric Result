@@ -1,0 +1,250 @@
+#!/bin/python3
+import os
+from os import system
+from pip._vendor.colorama import Fore, Back, Style
+import sys
+import mod
+import re
+import pyfiglet
+from time import sleep
+
+ques = input("Do you want to create a new file [if a file exist it will be replaced by new one](Y/N)=")
+
+if ques == "":
+    print("Invalid Input!!!")
+    os.execl(sys.executable, sys.executable, *sys.argv)
+elif ques == "Y":
+    global root, file, path
+    root = "/root/Desktop/"
+    file = "result.txt"
+    path = root + file
+    f = open(str(path), "w+")
+elif ques == "N":
+    path = "/root/Desktop/result.txt"
+else:
+    print("Invalid Input!!1")
+    os.execl(sys.executable, sys.executable, *sys.argv)
+
+
+
+
+def bio():
+    def l():
+        b.write("\n")
+
+    with open(path, "a") as b:
+        name = input("Enter the name of student =")
+        global rollno
+        rollno = input("Enter the roll no =")
+        if name == "":
+            print("Invalid Input!!")
+            comp()
+
+        for index, line in enumerate(lines):  # enumerate the list and loop through it
+            if re.match(name, line):
+                print("Entry already exist")
+                break
+        else:
+            try:
+                I = int(input("Enter marks of Islamiyat ="))
+                U = int(input("Enter marks of Urdu ="))
+                E = int(input("Enter marks of English ="))
+                M = int(input("Enter marks of Mathematics ="))
+                P = int(input("Enter marks of Physics ="))
+                B = int(input("Enter marks of Biology ="))
+                PS = int(input("Enter marks of Pak.studies ="))
+                C = int(input("Enter marks of Chemistry ="))
+                su = I + U + P + PS + M + E + C + B
+                b.write("\n")
+                b.write(name)
+                l()
+                b.write(rollno)
+                l()
+                b.write(li)
+                l()
+                b.write((pyfiglet.figlet_format(name)))
+                b.write(li)
+                l()
+                b.write("Name Of Student =")
+                b.write(name)
+                l()
+                b.write("Roll N0 =")
+                b.write(rollno)
+                l()
+                b.write("ISLAMIYAT 			")
+                b.write(str(I))
+                l()
+                b.write("URDU				")
+                b.write(str(U))
+                l()
+                b.write("ENGLISH				")
+                b.write(str(E))
+                l()
+                b.write("MATHEMATICS			")
+                b.write(str(M))
+                l()
+                b.write("PHYSICS				")
+                b.write(str(P))
+                l()
+                b.write("BIOLOGY				")
+                b.write(str(B))
+                l()
+                b.write("PAK.STUDIES       	")
+                b.write(str(PS))
+                l()
+                b.write("CHEMISTRY			")
+                b.write(str(C))
+                l()
+                b.write("TOTAL MARKS        ")
+                b.write(str(su))
+                l()
+                b.write(li)
+                sys.exit()
+            except ValueError:
+                print("You can enter number only")
+                bio()
+
+
+def comp():
+    def l():
+        b.write("\n")
+
+    with open(path, "a") as b:
+        name = input("Enter the name of student =")
+        rollno = input("Enter the roll no =")
+        if name == "":
+            print("Invalid Input!!")
+            comp()
+
+        for index, line in enumerate(lines):  # enumerate the list and loop through it
+            if re.match(name, line):
+                print("Entry already exist")
+                break
+        else:
+            try:
+                I = int(input("Enter marks of Islamiyat ="))
+                U = int(input("Enter marks of Urdu ="))
+                E = int(input("Enter marks of English ="))
+                M = int(input("Enter marks of Mathematics ="))
+                P = int(input("Enter marks of Physics ="))
+                CO = int(input("Enter marks of Computer ="))
+                PS = int(input("Enter marks of Pakistan Studies ="))
+                C = int(input("Enter marks of Chemistry ="))
+                su = I + U + P + PS + M + E + C + CO
+                b.write("\n")
+                b.write(name)
+                l()
+                b.write(rollno)
+                l()
+                b.write(li)
+                l()
+                b.write((pyfiglet.figlet_format(name)))
+                b.write(li)
+                l()
+                b.write("Name Of Student =")
+                b.write(name)
+                l()
+                b.write("Roll N0 =")
+                b.write(rollno)
+                l()
+                b.write("ISLAMIYAT 			")
+                b.write(str(I))
+                l()
+                b.write("URDU				")
+                b.write(str(U))
+                l()
+                b.write("ENGLISH				")
+                b.write(str(E))
+                l()
+                b.write("MATHEMATICS			")
+                b.write(str(M))
+                l()
+                b.write("PHYSICS				")
+                b.write(str(P))
+                l()
+                b.write("COMPUTER			")
+                b.write(str(CO))
+                l()
+                b.write("PAK.STUDIES       	")
+                b.write(str(PS))
+                l()
+                b.write("CHEMISTRY			")
+                b.write(str(C))
+                l()
+                b.write("TOTAL MARKS         ")
+                b.write(str(su))
+                l()
+                b.write(li)
+                sys.exit()
+            except ValueError:
+                print("You can enter number only")
+                comp()
+
+
+def subject():
+    question = input("(C) for Computer or (B) for Biology = ")
+    if question == "":
+        print("Invalid Input!!!!")
+        subject()
+    elif str(question) == "C":
+        comp()
+    elif str(question) == "c":
+        comp()
+    elif str(question) == "B":
+        bio()
+    elif str(question) == "b":
+        bio()
+    else:
+        print("Invalid Selection ('C' or 'B')")
+        subject()
+
+
+def newstudent():
+    new = input("Want to enter a new student(Y/N) =")
+    if new == "Y":
+        subject()
+    elif new == "y":
+        subject()
+    elif new == "n":
+        print("Bye")
+        sys.exit()
+    elif new == "N":
+        print("Bye")
+        sys.exit()
+    else:
+        print("Invalid Input")
+        newstudent()
+
+
+
+def first():
+    print((Fore.YELLOW + pyfiglet.figlet_format("             Matric Result") + Style.RESET_ALL))
+    global li
+    li = "*************************************************************************************************************"
+    print("\n")
+    x = input("Enter Your Name or Roll no =")
+    try:
+        if x == "":
+            print("Invalid Input")
+            sleep(3)
+            system('clear')
+            first()
+        else:
+            with open(path) as f:
+                global lines
+                lines = f.readlines()  # read all lines into a list
+                for index, line in enumerate(lines):  # enumerate the list and loop through it
+                    if re.match(x, line):  # check if the current line has your substring
+                        #                print(line.rstrip())
+                        a = index + 21
+                        b = index + 1
+                        print("".join(lines[b:a]))
+    except FileNotFoundError:
+        print("File Does not exist!!!")
+        print("You can create a new one by pressing (Y)")
+        os.execl(sys.executable, sys.executable, *sys.argv)
+
+
+system('clear')
+first()
+newstudent()
