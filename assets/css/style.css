@@ -7,7 +7,7 @@
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fff; color: #0f172a; }
 .premium-navbar { background: linear-gradient(90deg, var(--navy), var(--charcoal)); }
 .navbar .nav-link.active, .text-accent { color: var(--accent) !important; }
-.hero { background: linear-gradient(rgba(17,24,39,.75), rgba(31,41,55,.8)), url('/assets/images/hero.svg') center/cover no-repeat; min-height: 72vh; color: #fff; display:flex; align-items:center; }
+.hero { background: linear-gradient(rgba(17,24,39,.75), rgba(31,41,55,.8)), url('../images/hero.svg') center/cover no-repeat; min-height: 72vh; color: #fff; display:flex; align-items:center; }
 .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
 .premium-card { border: 0; border-radius: 1rem; box-shadow: 0 10px 30px rgba(15,23,42,.08); transition: .3s ease; }
 .premium-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(15,23,42,.15); }

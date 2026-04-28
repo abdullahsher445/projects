@@ -10,7 +10,7 @@ include __DIR__ . '/includes/header.php';
     <div class="container text-center reveal">
         <h1 class="display-4 fw-bold">Premium Handyman & Home Maintenance</h1>
         <p class="lead">Trusted workmanship, fast response, and polished finishes for modern Australian homes.</p>
-        <a href="/contact.php" class="btn btn-accent btn-lg px-4">Request a Quote</a>
+        <a href="<?= e(url('contact.php')) ?>" class="btn btn-accent btn-lg px-4">Request a Quote</a>
     </div>
 </section>
 <section class="py-5 reveal">
@@ -26,11 +26,11 @@ include __DIR__ . '/includes/header.php';
             <?php foreach ($services as $service): ?>
                 <div class="col-md-4">
                     <div class="card premium-card h-100">
-                        <img src="<?= e($service['image_path'] ?: '/assets/images/service-placeholder.svg') ?>" class="card-img-top" alt="<?= e($service['title']) ?>">
+                        <img src="<?= e(media_url($service['image_path'] ?: 'assets/images/service-placeholder.svg')) ?>" class="card-img-top" alt="<?= e($service['title']) ?>">
                         <div class="card-body">
                             <h5><?= e($service['title']) ?></h5>
                             <p><?= e($service['short_description']) ?></p>
-                            <a href="/services.php" class="btn btn-outline-dark btn-sm">View Details</a>
+                            <a href="<?= e(url('services.php')) ?>" class="btn btn-outline-dark btn-sm">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ include __DIR__ . '/includes/header.php';
             <?php foreach ($projects as $project): ?>
             <div class="col-md-4">
                 <div class="premium-card card h-100">
-                    <img src="<?= e($project['image_path'] ?: '/assets/images/project-placeholder.svg') ?>" class="card-img-top" alt="<?= e($project['title']) ?>">
+                    <img src="<?= e(media_url($project['image_path'] ?: 'assets/images/project-placeholder.svg')) ?>" class="card-img-top" alt="<?= e($project['title']) ?>">
                     <div class="card-body">
                         <span class="badge badge-category"><?= e($project['category']) ?></span>
                         <h5 class="mt-2"><?= e($project['title']) ?></h5>
@@ -88,7 +88,7 @@ include __DIR__ . '/includes/header.php';
     <div class="cta-section p-5 text-center">
         <h3>Need urgent home maintenance support?</h3>
         <p>Let’s schedule your job and deliver premium results.</p>
-        <a href="/contact.php" class="btn btn-accent">Contact Us Today</a>
+        <a href="<?= e(url('contact.php')) ?>" class="btn btn-accent">Contact Us Today</a>
     </div>
 </section>
 <?php include __DIR__ . '/includes/footer.php'; ?>

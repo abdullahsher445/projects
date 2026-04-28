@@ -29,6 +29,51 @@ try {
     die('Database connection failed. Please check config/db.php settings.');
 }
 
+
+function base_path(): string
+{
+    static $base = null;
+    if ($base !== null) {
+        return $base;
+    }
+
+    $projectRoot = realpath(__DIR__ . '/..');
+    $docRoot = isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : false;
+
+    if ($projectRoot && $docRoot && str_starts_with($projectRoot, $docRoot)) {
+        $base = str_replace('\\', '/', substr($projectRoot, strlen($docRoot)));
+    } else {
+        $base = '';
+    }
+
+    return rtrim($base, '/');
+}
+
+function url(string $path = ''): string
+{
+    $path = ltrim($path, '/');
+    $base = base_path();
+
+    if ($path === '') {
+        return $base !== '' ? $base . '/' : '/';
+    }
+
+    return ($base !== '' ? $base : '') . '/' . $path;
+}
+
+function media_url(string $path): string
+{
+    if ($path === '') {
+        return '';
+    }
+
+    if (preg_match('#^https?://#i', $path)) {
+        return $path;
+    }
+
+    return url(ltrim($path, '/'));
+}
+
 function e(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

@@ -11,7 +11,7 @@ include __DIR__ . '/includes/header.php';
             <?php foreach ($services as $service): ?>
             <div class="col-md-4 reveal">
                 <div class="card premium-card h-100">
-                    <img src="<?= e($service['image_path'] ?: '/assets/images/service-placeholder.svg') ?>" class="card-img-top" alt="<?= e($service['title']) ?>">
+                    <img src="<?= e(media_url($service['image_path'] ?: 'assets/images/service-placeholder.svg')) ?>" class="card-img-top" alt="<?= e($service['title']) ?>">
                     <div class="card-body">
                         <h5><?= e($service['title']) ?></h5>
                         <p><?= e($service['short_description']) ?></p>

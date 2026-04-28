@@ -13,9 +13,9 @@
             </div>
             <div class="col-md-4">
                 <h6 class="text-accent">Quick Links</h6>
-                <a class="footer-link" href="/services.php">Services</a><br>
-                <a class="footer-link" href="/projects.php">Projects</a><br>
-                <a class="footer-link" href="/contact.php">Get Quote</a>
+                <a class="footer-link" href="<?= e(url('services.php')) ?>">Services</a><br>
+                <a class="footer-link" href="<?= e(url('projects.php')) ?>">Projects</a><br>
+                <a class="footer-link" href="<?= e(url('contact.php')) ?>">Get Quote</a>
             </div>
         </div>
         <hr class="border-secondary my-4">
@@ -24,6 +24,6 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/main.js"></script>
+<script src="<?= e(url('assets/js/main.js')) ?>"></script>
 </body>
 </html>
